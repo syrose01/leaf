@@ -42,3 +42,14 @@
     - client_computations: dictionary with client ids as keys and length-num_rounds lists as values; the elements in the lists are ints representing the number of FLOPs computed by the respective client in the corresponding round
     - bytes_written: dictionary with client ids as keys and length-num_rounds lists as values; the elements in the lists are ints representing the number of bytes written to the server by the resepctive client in the corresponding round
     - bytes_read: dictionary with client ids as keys and length-num_rounds lists as values; the elements in the lists are ints representing the number of bytes read from the server by the resepctive client in the corresponding round
+
+## DQN-PSO Federated Learning (Experimental)
+- The experimental DQN-PSO algorithm uses a DQN-based client selector and PSO aggregation.
+- Ensure that the ```data/<dataset>/data/train``` and ```data/<dataset>/data/test``` directories contain data.
+- Example run:
+  - ```python3 dqn_pso_main.py -dataset femnist -model cnn --clients-per-round 10 --num-rounds 50 --num-epochs 1 --batch-size 10```
+- Optional DQN/PSO controls:
+  - ```--pso-iterations```, ```--pso-inertia```, ```--pso-local-acc```, ```--pso-global-acc```
+  - ```--dqn-epsilon```, ```--dqn-epsilon-min```, ```--dqn-epsilon-decay```
+  - ```--dqn-replay-start```, ```--dqn-batch-size```
+  - ```--val-fraction```, ```--val-max-samples```
